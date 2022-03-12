@@ -42,7 +42,7 @@
   
   <script>
 //引入api.js  好调用里面的接口
-import { requestLogin } from '../api/api';
+import { api } from '../api/api.js';
 export default {
   name: 'login',
   data () {
@@ -71,49 +71,51 @@ export default {
     }
   },
   methods: {
-    handleLogin () {
-      this.$refs.AccountFrom.validate((valid) => {
-        if (valid) {
-          //验证通过 可以提交
-          this.logining = true;
-          //将提交的数据进行封装
-          var loginParams = { cUsername: this.account.username, cPwd: this.account.pwd }
-          //调用函数  传递参数 获取结果
-          requestLogin(loginParams).then(data => {
-            this.logining = false
-            if (data.code == '200') {
-              //登录成功
-              sessionStorage.setItem('access-token', data.token);
-              //用vue路由跳转到后台主界面
-              this.$router.push({ path: '/home' });
+    async handleLogin () {
+      // this.$refs.AccountFrom.validate((valid) => {
+      //   if (valid) {
+      //     //验证通过 可以提交
+      //     this.logining = true;
+      //     //将提交的数据进行封装
+      //     var loginParams = { cUsername: this.account.username, cPwd: this.account.pwd }
+      //     //调用函数  传递参数 获取结果
+      //     requestLogin(loginParams).then(data => {
+      //       this.logining = false
+      //       if (data.code == '200') {
+      //         //登录成功
+      //         sessionStorage.setItem('access-token', data.token);
+      //         //用vue路由跳转到后台主界面
+      //         this.$router.push({ path: '/home' });
 
-            } else {
-              this.$message({
-                message: data.msg,
-                type: 'error'
+      //       } else {
+      //         this.$message({
+      //           message: data.msg,
+      //           type: 'error'
 
-              });
+      //         });
 
-            }
+      //       }
 
-          })
+      //     })
 
 
-        } else {
-          console.log('error submit');
-          return false;
+      //   } else {
+      //     console.log('error submit');
+      //     return false;
 
-        }
-
-      });
+      //   }
+      const response = await api();
+      console.log(response);
+      //     })
 
     }
 
   }
+
 }
  </script>
  
-  <style>
+<style>
 body {
   background: #dfe9fb;
 }

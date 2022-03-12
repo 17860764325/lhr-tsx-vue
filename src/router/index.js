@@ -1,37 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '../app'
+import ElementUI from 'element-ui'
+import login from '../page/loginpage.vue'
 
 Vue.use(Router)
-const routes = [
-  {
-    path: '/', component: App,
-    redirect: 'login',
-    children: [
-      {
-        path: '/',
-        name: 'login',
-        component: () => import('@/page/loginpage.vue')
-      },
-      {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/page/loginpage.vue')
-      },
-      {
-        path: '/home',
-        name: 'home',
-        component: () => import('@/page/home.vue')
-      }
-    ]
-  }
-]
-
+Vue.use(ElementUI)
 const router = new Router({
-  mode: 'history',
-  baseUrl: "http://localhost:8080",
-  routes
+  routes: [
+    {
+      path: '/',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    }
+  ]
 })
+
+
 
 // router.beforeEach((to, from, next) => {
 //   if (to.path.startsWith('/login')) {
