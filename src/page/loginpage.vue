@@ -116,10 +116,6 @@ export default {
  </script>
  
 <style>
-body {
-  background: #dfe9fb;
-}
-
 .login-container {
   width: 350px;
   margin-left: 35%;
