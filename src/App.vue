@@ -1,10 +1,8 @@
 <template>
   <div>
     <div>
-      <el-menu :default-active="activeIndex"
-               class="el-menu-demo"
-               mode="horizontal"
-               @select="handleSelect">
+      <el-menu class="el-menu-demo"
+               mode="horizontal">
         <el-menu-item index="1">
           <h3s>Mr.L & Mr.T</h3s>
         </el-menu-item>

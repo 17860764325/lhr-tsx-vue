@@ -6,19 +6,18 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/api': {
-        target: `http://localhost:8081`, // 这个链接是要代理到的api地址
-        changeOrigin: true,// 是否跨域
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    },
+    // proxyTable: {
+    //   '/api': {                              // 你定一个变量叫什么都行就是你以后请求的时候前面都会加上这个
+    //     target: `http://localhost:8081/api`, // 这个链接是要代理到的api地址
+    //     changeOrigin: true,// 是否跨域
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
