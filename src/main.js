@@ -18,6 +18,7 @@ Vue.use(VueRouter)
 
 Vue.use(ElementUI)
 
+// axios.defaults.baseURL = "http://localhost:8081"
 
 // 创建Vue实例对象 --vm
 new Vue({

@@ -33,53 +33,29 @@
   
   <script>
 //引入api.js  好调用里面的接口
-import { api } from '../../api/api.js';
+import { getClassification } from '../../api/home/api.js';
 export default {
   name: 'login',
   data () {
     return {
-      data: [{
-        label: '一级 1',
-        children: [{
-          label: '二级 1-1',
-          children: [{
-            label: '三级 1-1-1'
-          }]
-        }]
-      }, {
-        label: '一级 2',
-        children: [{
-          label: '二级 2-1',
-          children: [{
-            label: '三级 2-1-1'
-          }]
-        }, {
-          label: '二级 2-2',
-          children: [{
-            label: '三级 2-2-1'
-          }]
-        }]
-      }, {
-        label: '一级 3',
-        children: [{
-          label: '二级 3-1',
-          children: [{
-            label: '三级 3-1-1'
-          }]
-        }, {
-          label: '二级 3-2',
-          children: [{
-            label: '三级 3-2-1'
-          }]
-        }]
-      }],
+      data: undefined,
       defaultProps: {
         children: 'children',
-        label: 'label'
+        label: 'name'
       }
 
     }
   },
+  async created () {
+    await getClassification().then(res => {
+      this.data = res.data.data;
+    })
+
+
+  },
+  methods: {
+
+  }
 }
  </script>
  

@@ -3,8 +3,11 @@ import axios from 'axios'
 
 // create an axios instance
 const service = axios.create({
-  timeout: 5000 // 请求超时时间设置
+  timeout: 5000, // 请求超时时间设置,
+  baseURL: 'http://localhost:8081' // api的base_url
 })
+
+
 
 // 返回体中需要进行的操作
 // service.interceptors.response.use(
